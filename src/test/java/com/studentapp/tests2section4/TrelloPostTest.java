@@ -14,13 +14,13 @@ public class TrelloPostTest extends BaseTrelloTest {
     @DisplayName("Trello Parameters")
     @Test
     void addPostTrelloTest() {
-        Map<String, String > params = new HashMap<>();
-        params.put("name", "RestAssured 14ggfdgfd.11.2023");
+        Map<String, String> params = new HashMap<>();
+        params.put("name", "RestAssured abc 14ggfdgfd.11.2023");
         params.put("key", KEY);
         params.put("token", TOKEN);
 
         given()
-                .contentType(ContentType.XML) // wszystko łyka
+                .contentType(ContentType.ANY) // wszystko łyka
                 .queryParams(params)
                 .log()
                 .all()
