@@ -1,5 +1,6 @@
 package com.studentapp.tests2section4;
 
+import io.restassured.http.Method;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -86,5 +87,39 @@ public class Authentication {
         addBooksResponse.prettyPrint();
 
 
+    }
+
+    @Test
+    public void GetBooksDetails() {
+        // Specify the base URL to the RESTful web service
+        RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
+        // Get the RequestSpecification of the request to be sent to the server.
+        RequestSpecification httpRequest = RestAssured.given();
+        // specify the method type (GET) and the parameters if any.
+        //In this case the request does not take any parameters
+        Response response = httpRequest.request(Method.GET, "");
+        // Print the status and message body of the response received from the server
+        System.out.println("Status received => " + response.getStatusLine());
+        System.out.println("Response=>" + response.prettyPrint());
+
+    }
+
+    @Test
+    public void GetWeatherDetailsCondensed()
+    {
+        // Specify the base URL to the RESTful web service
+        RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
+
+        // Get the RequestSpecification of the request that is to be sent
+        // to the server.
+        RequestSpecification httpRequest = RestAssured.given();
+
+        // Call RequestSpecification.get() method to get the response.
+        // Make sure you specify the resource name.
+        Response response = httpRequest.get("");
+
+        // Response.asString method will directly return the content of the body
+        // as String.
+        System.out.println("Response Body is =>  " + response.prettyPrint());
     }
 }
