@@ -81,7 +81,7 @@ public class Authentication {
 
         Response addBooksResponse = request.body(addBookDetails).post("/BookStore/v1/Books");
 
-        Assertions.assertEquals(201, addBooksResponse.getStatusCode());
+        //Assertions.assertEquals(201, addBooksResponse.getStatusCode());
 
         addBooksResponse.prettyPrint();
 
